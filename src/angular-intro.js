@@ -51,6 +51,7 @@ ngIntroDirective.directive('ngIntroOptions', ['$timeout', function ($timeout) {
                     intro.onexit(function() {
                         scope.ngIntroOnexit.call(this, scope);
                         scope.$digest();
+                        navigationWatch();
                     });
                 }
 
