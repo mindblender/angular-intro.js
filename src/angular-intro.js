@@ -57,22 +57,19 @@ ngIntroDirective.directive('ngIntroOptions', ['$timeout', function ($timeout) {
 
                 if (scope.ngIntroOnchange) {
                     intro.onchange(function(targetElement){
-                        scope.ngIntroOnchange.call(this, targetElement, scope);
-                        scope.$digest();
+                        $timeout(scope.ngIntroOnchange.bind(this, targetElement, scope));
                     });
                 }
 
                 if (scope.ngIntroOnbeforechange) {
                     intro.onbeforechange(function(targetElement) {
-                        scope.ngIntroOnbeforechange.call(this, targetElement, scope);
-                        scope.$digest();
+                        $timeout(scope.ngIntroOnbeforechange.bind(this, targetElement, scope));
                     });
                 }
 
                 if (scope.ngIntroOnafterchange) {
                     intro.onafterchange(function(targetElement){
-                        scope.ngIntroOnafterchange.call(this, targetElement, scope);
-                        scope.$digest();
+                        $timeout(scope.ngIntroOnafterchange.bind(this, targetElement, scope));
                     });
                 }
 
